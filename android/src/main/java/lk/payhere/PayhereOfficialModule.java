@@ -478,7 +478,7 @@ public class PayhereOfficialModule extends ReactContextBaseJavaModule implements
             Item item = new Item(
                 null,
                 this.extract(o, PaymentObjectKey.items),
-                this.extract(o, PaymentObjectKey.quantity),
+                Integer.parseInt((this.extract(o, PaymentObjectKey.quantity)),
                 this.extractAmount(o, PaymentObjectKey.item_amout)
             );
 
