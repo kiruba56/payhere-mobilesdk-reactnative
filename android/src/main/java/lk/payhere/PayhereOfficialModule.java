@@ -47,6 +47,8 @@ public class PayhereOfficialModule extends ReactContextBaseJavaModule implements
         public final static String notifyUrl = "notify_url";
         public final static String orderId = "order_id";
         public final static String items = "items";
+        public final static String quantity = "quantity";
+        public final static String item_amout = "item_amout";
         public final static String amount = "amount";
         public final static String currency = "currency";
         public final static String firstName = "first_name";
@@ -472,12 +474,12 @@ public class PayhereOfficialModule extends ReactContextBaseJavaModule implements
         String error = null;
 
         try {
-
+        
             Item item = new Item(
                 null,
                 this.extract(o, PaymentObjectKey.items),
-                1,
-                this.extractAmount(o, PaymentObjectKey.amount)
+                this.extract(o, PaymentObjectKey.quantity),
+                this.extractAmount(o, PaymentObjectKey.item_amout)
             );
 
             InitRequest req = new InitRequest();
